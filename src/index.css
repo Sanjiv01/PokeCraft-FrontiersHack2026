@@ -1,0 +1,142 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Dark Mode Variables (Default) */
+  --bg-app: #0a0a0f;
+  --bg-gradient-app: linear-gradient(145deg, #0a0a0f 0%, #0f0f1a 50%, #0a0f0a 100%);
+  --bg-panel: rgba(255, 255, 255, 0.02);
+  --bg-header: rgba(0, 0, 0, 0.2);
+  --bg-input: rgba(255, 255, 255, 0.04);
+  --bg-chip: rgba(255, 255, 255, 0.03);
+  --bg-chip-hover: rgba(248, 113, 113, 0.08);
+  --bg-bubble-user: linear-gradient(135deg, #ef4444, #dc2626);
+  --bg-bubble-assistant: rgba(255, 255, 255, 0.05);
+  --bg-tool-item: rgba(255, 255, 255, 0.04);
+  --border-tool-item: rgba(255, 255, 255, 0.06);
+  --text-tool-name: rgba(255, 255, 255, 0.92);
+  --text-tool-preview: rgba(255, 255, 255, 0.55);
+  --text-tool-running: rgba(255, 255, 255, 0.65);
+  --text-tool-done: #86efac;
+  --text-tool-error: #fda4af;
+  --bg-code-inline: rgba(255, 255, 255, 0.08);
+  --border-code-inline: rgba(255, 255, 255, 0.08);
+  --bg-code-block: rgba(4, 7, 14, 0.78);
+  --border-code-block: rgba(255, 255, 255, 0.08);
+  --border-table: rgba(255, 255, 255, 0.08);
+  --bg-table-header: rgba(255, 255, 255, 0.06);
+  --border-rule: rgba(255, 255, 255, 0.1);
+  --text-link: #fca5a5;
+  --border-blockquote: rgba(248, 113, 113, 0.5);
+  --text-blockquote: rgba(255, 255, 255, 0.7);
+
+  --border-panel: rgba(255, 255, 255, 0.06);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-input: rgba(255, 255, 255, 0.1);
+
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --text-tertiary: rgba(255, 255, 255, 0.3);
+  --text-inverse: #ffffff;
+
+  --accent-red: #ef4444;
+  --accent-green: #22c55e;
+  --accent-yellow: #facc15;
+
+  --bg-assistant-avatar: rgba(250, 204, 21, 0.1);
+  --border-assistant-avatar: rgba(250, 204, 21, 0.2);
+
+  --orb-1: rgba(239, 68, 68, 0.08);
+  --orb-2: rgba(59, 130, 246, 0.06);
+  --orb-3: rgba(250, 204, 21, 0.05);
+
+  --shadow-badge: 0 0 8px rgba(34, 197, 94, 0.5);
+
+  --border-icon: rgba(255, 255, 255, 0.15);
+  --bg-icon-line: rgba(255, 255, 255, 0.2);
+  --border-icon-center: rgba(255, 255, 255, 0.3);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    /* Light Mode Variables */
+    --bg-app: #f0f2f5;
+    --bg-gradient-app: linear-gradient(145deg, #f0f2f5 0%, #ffffff 50%, #e6e9ef 100%);
+    --bg-panel: rgba(255, 255, 255, 0.7);
+    --bg-header: rgba(255, 255, 255, 0.5);
+    --bg-input: rgba(0, 0, 0, 0.04);
+    --bg-chip: rgba(0, 0, 0, 0.05);
+    --bg-chip-hover: rgba(239, 68, 68, 0.1);
+    --bg-bubble-user: linear-gradient(135deg, #ef4444, #dc2626);
+    --bg-bubble-assistant: rgba(0, 0, 0, 0.05);
+    --bg-tool-item: rgba(255, 255, 255, 0.7);
+    --border-tool-item: rgba(0, 0, 0, 0.08);
+    --text-tool-name: rgba(0, 0, 0, 0.82);
+    --text-tool-preview: rgba(0, 0, 0, 0.6);
+    --text-tool-running: rgba(0, 0, 0, 0.6);
+    --text-tool-done: #15803d;
+    --text-tool-error: #b91c1c;
+    --bg-code-inline: rgba(0, 0, 0, 0.06);
+    --border-code-inline: rgba(0, 0, 0, 0.08);
+    --bg-code-block: rgba(255, 255, 255, 0.9);
+    --border-code-block: rgba(0, 0, 0, 0.08);
+    --border-table: rgba(0, 0, 0, 0.1);
+    --bg-table-header: rgba(0, 0, 0, 0.05);
+    --border-rule: rgba(0, 0, 0, 0.12);
+    --text-link: #b91c1c;
+    --border-blockquote: rgba(220, 38, 38, 0.4);
+    --text-blockquote: rgba(0, 0, 0, 0.68);
+
+    --border-panel: rgba(0, 0, 0, 0.06);
+    --border-subtle: rgba(0, 0, 0, 0.08);
+    --border-input: rgba(0, 0, 0, 0.1);
+
+    --text-primary: #1a1a1a;
+    --text-secondary: rgba(0, 0, 0, 0.6);
+    --text-tertiary: rgba(0, 0, 0, 0.4);
+    --text-inverse: #ffffff;
+
+    --accent-red: #dc2626;
+
+    --bg-assistant-avatar: rgba(234, 179, 8, 0.15);
+    --border-assistant-avatar: rgba(234, 179, 8, 0.3);
+
+    /* Darker orbs for visibility on light bg */
+    --orb-1: rgba(239, 68, 68, 0.15);
+    --orb-2: rgba(59, 130, 246, 0.12);
+    --orb-3: rgba(250, 204, 21, 0.15);
+
+    --shadow-badge: 0 0 8px rgba(34, 197, 94, 0.3);
+
+    --border-icon: rgba(0, 0, 0, 0.2);
+    --bg-icon-line: rgba(0, 0, 0, 0.2);
+    --border-icon-center: rgba(0, 0, 0, 0.3);
+  }
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100dvh;
+  background: var(--bg-app);
+  color: var(--text-primary);
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+}
+
+textarea:focus, button:focus {
+  outline: none;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-subtle); border-radius: 3px; }

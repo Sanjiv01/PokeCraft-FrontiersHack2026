@@ -1,0 +1,26 @@
+node_modules/
+client/node_modules/
+client/dist/
+dist/
+dev-dist/
+dist-ssr
+*.local
+.env
+**/.env
+**/.env.*
+backups/
+.gemini/
+gha-creds-*.json
+server/.pi/
+server/workspace/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

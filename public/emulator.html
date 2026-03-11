@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PokeCraft - Game</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #000; overflow: hidden; width: 100vw; height: 100vh; }
+    #game { width: 100%; height: 100%; }
+  </style>
+</head>
+<body>
+  <div id="game"></div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const reloadToken = params.get('reload') || Date.now().toString();
+    const romVersion = params.get('rom') || 'unknown';
+    const BUTTON_KEYS = {
+      UP: 'ArrowUp',
+      DOWN: 'ArrowDown',
+      LEFT: 'ArrowLeft',
+      RIGHT: 'ArrowRight',
+      A: 'z',
+      B: 'x',
+      START: 'Enter',
+      SELECT: 'Shift',
+      L: 'a',
+      R: 's',
+    };
+
+    function dispatchKey(type, key) {
+      const event = new KeyboardEvent(type, {
+        key,
+        bubbles: true,
+        cancelable: true,
+      });
+      window.dispatchEvent(event);
+      document.dispatchEvent(event);
+      const active = document.activeElement;
+      if (active && active !== document.body) {
+        active.dispatchEvent(event);
+      }
+    }
+
+    function pressButton(button, durationMs = 120) {
+      const key = BUTTON_KEYS[String(button || '').toUpperCase()];
+      if (!key) return false;
+      dispatchKey('keydown', key);
+      window.setTimeout(() => dispatchKey('keyup', key), Math.max(20, durationMs));
+      return true;
+    }
+
+    function runCommands(commands) {
+      if (!Array.isArray(commands) || commands.length === 0) return;
+      let offsetMs = 0;
+      for (const command of commands) {
+        const button = String(command?.button || '').toUpperCase();
+        const durationMs = Math.max(20, Number(command?.durationMs || 120));
+        const gapMs = Math.max(0, Number(command?.gapMs || 60));
+        window.setTimeout(() => {
+          pressButton(button, durationMs);
+        }, offsetMs);
+        offsetMs += durationMs + gapMs;
+      }
+    }
+
+    window.addEventListener('message', (event) => {
+      if (!event.data || event.data.type !== 'pokecraft-emulator-input') return;
+      runCommands(event.data.commands);
+    });
+
+    EJS_player = '#game';
+    EJS_core = 'gba';
+    EJS_gameUrl = `/api/rom?v=${encodeURIComponent(reloadToken)}`;
+    EJS_gameName = `Pokemon FireRed ${romVersion}`;
+    EJS_color = '#ef4444';
+    EJS_startOnLoaded = true;
+    EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
+
+    window.addEventListener('load', () => {
+      window.parent?.postMessage(
+        {
+          type: 'pokecraft-emulator-ready',
+          reloadToken,
+        },
+        '*',
+      );
+    });
+  </script>
+  <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
+</body>
+</html>
